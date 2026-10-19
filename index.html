@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Student admission registration portal demo." />
+  <title>Student Admission Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Campus Portal home">
+      <span class="brand-mark">C</span>
+      <span><strong>Campus</strong><small>ADMISSIONS PORTAL</small></span>
+    </a>
+    <span class="session-badge"><span class="status-dot"></span> Registration open</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <div class="eyebrow">STUDENT SERVICES <span>•</span> 2026/2027 SESSION</div>
+      <h1>Student admission<br /><span>registration portal</span></h1>
+      <p>Enter the applicant's details below. Check your information carefully before registering.</p>
+    </section>
+
+    <section class="stats-grid" aria-label="Registration summary">
+      <article class="stat-card">
+        <div class="stat-icon">↗</div>
+        <div><p>Total registered students</p><strong id="totalCount">0</strong></div>
+      </article>
+      <article class="stat-card secondary-stat">
+        <div class="stat-icon">✓</div>
+        <div><p>Admission session</p><strong class="session-value">2026/2027</strong></div>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel form-panel">
+        <div class="panel-heading">
+          <div><span class="step-label">APPLICANT FORM</span><h2>Student details</h2></div>
+          <span class="required-note"><b>*</b> Required fields</span>
+        </div>
+
+        <form id="admissionForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="fullName">Full name <b>*</b></label>
+              <input id="fullName" name="fullName" type="text" placeholder="e.g. Ada Okafor" autocomplete="name" />
+              <small class="error" id="fullNameError" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="matricNo">Matriculation number <b>*</b></label>
+              <input id="matricNo" name="matricNo" type="text" placeholder="e.g. CSU/2026/001" />
+              <small class="error" id="matricNoError" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="email">Email address <b>*</b></label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+              <small class="error" id="emailError" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number <b>*</b></label>
+              <input id="phone" name="phone" type="tel" placeholder="e.g. 08012345678" autocomplete="tel" />
+              <small class="error" id="phoneError" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="age">Age <b>*</b></label>
+              <input id="age" name="age" type="number" min="16" max="100" placeholder="Enter age" />
+              <small class="error" id="ageError" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="department">Department <b>*</b></label>
+              <select id="department" name="department">
+                <option value="">Select department</option>
+                <option>Computer Science</option>
+                <option>Accounting</option>
+                <option>Business Administration</option>
+                <option>Economics</option>
+                <option>Mass Communication</option>
+                <option>Political Science</option>
+                <option>Microbiology</option>
+                <option>Nursing Science</option>
+                <option>Engineering</option>
+                <option>Other</option>
+              </select>
+              <small class="error" id="departmentError" aria-live="polite"></small>
+            </div>
+            <div class="field full-width">
+              <label for="password">Create password <b>*</b></label>
+              <div class="password-wrap">
+                <input id="password" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" />
+                <button type="button" id="togglePassword" class="toggle-password" aria-label="Show password">Show</button>
+              </div>
+              <small class="hint">Use 8+ characters with at least one letter and one number.</small>
+              <small class="error" id="passwordError" aria-live="polite"></small>
+            </div>
+          </div>
+          <div id="formNotice" class="form-notice" role="status" aria-live="polite"></div>
+          <button class="submit-button" type="submit">Register student <span aria-hidden="true">→</span></button>
+          <p class="privacy-note">Demo project: student records are saved in this browser only. Do not use real passwords or sensitive data.</p>
+        </form>
+      </article>
+
+      <article class="panel list-panel">
+        <div class="panel-heading list-heading">
+          <div><span class="step-label">RECORDS</span><h2>Registered students</h2></div>
+          <span class="record-pill" id="recordPill">0 records</span>
+        </div>
+        <div class="table-toolbar">
+          <label class="search-box" for="searchStudents"><span aria-hidden="true">⌕</span><input id="searchStudents" type="search" placeholder="Search students..." /></label>
+          <button type="button" id="clearRecords" class="clear-button">Clear all</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Student</th><th>Matric no.</th><th>Department</th><th>Age</th><th>Action</th></tr>
+            </thead>
+            <tbody id="studentTableBody">
+              <tr class="empty-row"><td colspan="5"><div class="empty-state"><span>▤</span><strong>No students registered yet</strong><small>Registered students will appear here.</small></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footnote">Passwords are never shown in the student table.</p>
+      </article>
+    </section>
+    <footer>© 2026 Campus Admissions Portal <span>Student registration made simple.</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
